@@ -1,0 +1,147 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar{
+  position: fixed;
+  height: 100%;
+  width: 260px;
+  background-color: #11101d;
+  padding: 15px;
+}
+
+.logo{
+  font-size: 18px;
+  padding: 0 10px;
+}
+
+.sidebar a{
+ color: #fff;
+ text-decoration: none;
+}
+
+.menu-content{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin-top: 40px;
+  overflow-y: scroll;
+}
+
+.menu-items{
+  list-style: none;
+  transition: all 0.4s ease;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-title{
+  color: #fff;
+  font-size: 14px;
+  padding: 15px 20px;
+}
+
+.item a, .submenu-item{
+  padding: 16px;
+  
+  display: inline-block;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.submenu-item{
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.item a:hover, .submenu-item:hover, .submenu .menu-title:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.item i{
+  font-size: 12px;
+}
+
+.submenu{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: calc(-100% - 26px);
+  height: calc(100% + 100vh);
+  background: #11101d;
+  display: none;
+}
+
+.show-submenu ~ .submenu{
+  display: block;
+}
+
+.submenu-active .menu-items{
+  transform: translateX(-56%);
+}
+.submenu .menu-title{
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.submenu .menu-title i{
+   margin-left: 10px;
+}
+
+.menu-content::-webkit-scrollbar{
+  display: none;
+}
+
+.navbar, .main{
+  left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+  z-index: 1000;
+}
+
+.navbar{
+  background: #02425e;
+  position: fixed;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 25px;
+  cursor: pointer;
+ 
+}
+
+
+.sidebar.close ~ .navbar,
+.sidebar.close ~ .main{
+  left: 0;
+  width: 100%;
+}
+.main{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: 100;
+  background: #e7f2fd;
+}
+
+.main h1{
+  color: #11101d;
+  font-size: 40px;
+  text-align: center;
+}
+
+.navbar #sidebar-close{
+  cursor: pointer;
+}
+
+.navbar i{
+  color: #11101d;
+}
